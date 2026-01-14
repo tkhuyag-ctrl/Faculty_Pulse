@@ -58,5 +58,45 @@
       "content_type": "Publication",
       "department": "Chemistry"
     }
+  },
+  {
+    "id": "007",
+    "document": "pdfs/pdf_07",
+    "metadata": {
+      "faculty_name": "Casey Londergan",
+      "date_published": "2024-01-11T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "008",
+    "document": "pdfs/pdf_08",
+    "metadata": {
+      "faculty_name": "Clyde Daly",
+      "date_published": "2024-02-16T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "009",
+    "document": "pdfs/pdf_09",
+    "metadata": {
+      "faculty_name": "Kristen E. Whalen",
+      "date_published": "2025-02-05T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Biology"
+    }
+  },
+  {
+    "id": "010",
+    "document": "pdfs/pdf_10",
+    "metadata": {
+      "faculty_name": "Lee Dietterich",
+      "date_published": "2025-08-05T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Biology"
+    }
   }
 ]
