@@ -1,6 +1,6 @@
 # Faculty Pulse - ChromaDB Document Management System
 
-A complete system for extracting text from web URLs and storing them in a ChromaDB vector database with semantic search capabilities.
+A complete system for extracting text from web URLs and storing them in a ChromaDB vector database with semantic search capabilities. Now includes an interactive AI-powered chatbot for natural language queries!
 
 ## Features
 
@@ -10,6 +10,8 @@ A complete system for extracting text from web URLs and storing them in a Chroma
 ✅ **Semantic Search** - Query documents by meaning, not just keywords
 ✅ **Metadata Filtering** - Filter by content type, department, etc.
 ✅ **Database Management** - View, clear, and manage all submissions
+🤖 **AI Chatbot Interface** - Ask questions in natural language using Claude AI (NEW!)
+🎨 **Web Interface** - Modern Streamlit-based UI for easy interaction (NEW!)
 
 ## Installation
 
@@ -18,11 +20,15 @@ A complete system for extracting text from web URLs and storing them in a Chroma
 python3 -m venv venv
 
 # Activate virtual environment
-source venv/bin/activate
+source venv/bin/activate  # On macOS/Linux
+# or
+venv\Scripts\activate     # On Windows
 
 # Install dependencies
-pip install chromadb beautifulsoup4 requests
+pip install -r requirements.txt
 ```
+
+For the chatbot, you'll also need an Anthropic API key. See [CHATBOT_README.md](CHATBOT_README.md) for details.
 
 ## Quick Start
 
@@ -102,15 +108,40 @@ results = manager.query_submissions(
 manager.display_all_submissions()
 ```
 
+## Quick Start with Chatbot 🤖
+
+Want to jump straight to asking questions? Follow these steps:
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Set your Anthropic API key
+export ANTHROPIC_API_KEY='your-api-key-here'  # macOS/Linux
+# or
+set ANTHROPIC_API_KEY=your-api-key-here       # Windows
+
+# 3. Run the chatbot web interface
+streamlit run app.py
+```
+
+Then open your browser and start asking questions about faculty! For detailed instructions, see [CHATBOT_README.md](CHATBOT_README.md).
+
 ## File Structure
 
 ```
 Faculty_Pulse/
 ├── chroma_manager.py           # Core ChromaDB manager class
 ├── data_extractor.py           # Web text extraction script
+├── chatbot.py                  # AI chatbot core logic (NEW!)
+├── app.py                      # Streamlit web interface (NEW!)
+├── requirements.txt            # Python dependencies (NEW!)
 ├── test_chroma_manager.py      # Comprehensive test suite
 ├── example_full_workflow.py    # Complete workflow demonstration
 ├── clear_db_demo.py            # Database clearing utility
+├── view_db_summary.py          # View database contents
+├── README.md                   # This file
+├── CHATBOT_README.md           # Chatbot documentation (NEW!)
 ├── DATA_EXTRACTOR_USAGE.md     # Detailed extractor documentation
 ├── data_example.json           # Example with text document
 ├── data_example_no_id.json     # Example without ID (auto-generated)
