@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# ChromaDB Database
+chroma_db/
+
+# Test Data Directory
+test_data/
+
+# PDF Files
+pdfs/
+
+# Large extracted JSON files
+data_extracted*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
