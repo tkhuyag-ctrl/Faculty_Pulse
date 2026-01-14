@@ -13,9 +13,11 @@ ENV/
 # ChromaDB Database
 chroma_db/
 
-# Extracted Data Directories
-data/
+# Test Data Directory
 test_data/
+
+# PDF Files
+pdfs/
 
 # Large extracted JSON files
 data_extracted*.json
