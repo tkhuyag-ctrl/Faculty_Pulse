@@ -29,7 +29,7 @@ class FacultyPulseChatbot:
                 "or pass api_key parameter."
             )
 
-        self.client = Anthropic(api_key=self.api_key)
+        self.client = Anthropic(api_key=self.api_key, timeout=60.0)
         self.conversation_history = []
 
     def query_database(
@@ -134,7 +134,7 @@ Based on the information above, please provide a helpful answer to the user's qu
 
         # Call Claude API
         response = self.client.messages.create(
-            model="claude-3-5-sonnet-20241022",
+            model="claude-3-haiku-20240307",
             max_tokens=1024,
             system=system_prompt,
             messages=messages

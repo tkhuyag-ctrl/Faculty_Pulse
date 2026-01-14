@@ -211,6 +211,10 @@ def main():
 
             except Exception as e:
                 st.error(f"❌ Error: {str(e)}")
+                st.error("💡 Tip: If the chatbot keeps failing, try resetting the conversation using the button in the sidebar.")
+                # Log the full error for debugging
+                import traceback
+                st.expander("🔍 Error Details").code(traceback.format_exc())
 
         # Rerun to update the chat
         st.rerun()
