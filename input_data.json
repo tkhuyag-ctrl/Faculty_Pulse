@@ -1,0 +1,62 @@
+[
+  {
+    "id": "001",
+    "document": "pdfs/pdf_01",
+    "metadata": {
+      "faculty_name": "Louise K. Charkoudian",
+      "date_published": "2025-01-02T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "002",
+    "document": "pdfs/pdf_02",
+    "metadata": {
+      "faculty_name": "Clyde Daly",
+      "date_published": "2025-08-12T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "003",
+    "document": "pdfs/pdf_03",
+    "metadata": {
+      "faculty_name": "Louise K. Charkoudian",
+      "date_published": "2025-08-12T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "004",
+    "document": "pdfs/pdf_04",
+    "metadata": {
+      "faculty_name": "Louise K. Charkoudian",
+      "date_published": "2025-09-27T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "005",
+    "document": "pdfs/pdf_05",
+    "metadata": {
+      "faculty_name": "Clyde Daly",
+      "date_published": "2025-11-04T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  },
+  {
+    "id": "006",
+    "document": "pdfs/pdf_06",
+    "metadata": {
+      "faculty_name": "Leah M. Seebald",
+      "date_published": "2025-12-01T00:00:00Z",
+      "content_type": "Publication",
+      "department": "Chemistry"
+    }
+  }
+]

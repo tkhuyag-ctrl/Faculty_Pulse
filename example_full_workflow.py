@@ -22,8 +22,8 @@ def full_workflow_example():
     print("\n[STEP 1] Extracting text from web URLs...")
     print("-" * 80)
 
-    extractor = DataExtractor(delay=1.0)
-    input_file = "data_example_urls_real.json"
+    extractor = DataExtractor(delay=2.0, max_retries=3)
+    input_file = "input_data.json"
     output_dir = "data"
 
     try:
