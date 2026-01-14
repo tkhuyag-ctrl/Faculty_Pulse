@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m streamlit run:*)",
+      "Bash(timeout 5 tail:*)",
+      "Bash(if [ -f .streamlit/config.toml ])",
+      "Bash(then cat .streamlit/config.toml)",
+      "Bash(else echo \"No config file found\")",
+      "Bash(fi)",
+      "Bash(STREAMLIT_BROWSER_GATHER_USAGE_STATS=false python -m streamlit:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(pip install:*)",
+      "Bash(python view_db_summary.py:*)"
+    ]
+  }
+}
