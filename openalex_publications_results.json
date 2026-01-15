@@ -1,0 +1,42 @@
+[
+  {
+    "name": "John Dougherty",
+    "openalex_id": "A5015357170",
+    "department": "Computer Science",
+    "publications_fetched": 14,
+    "publications_stored": 12,
+    "error": null
+  },
+  {
+    "name": "Sorelle Friedler",
+    "openalex_id": "A5086384189",
+    "department": "Computer Science",
+    "publications_fetched": 29,
+    "publications_stored": 18,
+    "error": null
+  },
+  {
+    "name": "Alvin Grissom",
+    "openalex_id": "A5088386242",
+    "department": "Computer Science",
+    "publications_fetched": 8,
+    "publications_stored": 5,
+    "error": null
+  },
+  {
+    "name": "Steven Lindell",
+    "openalex_id": "A5031196296",
+    "department": "Computer Science",
+    "publications_fetched": 2,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "David Wonnacott",
+    "openalex_id": "A5048744223",
+    "department": "Computer Science",
+    "publications_fetched": 1,
+    "publications_stored": 0,
+    "error": null
+  }
+]

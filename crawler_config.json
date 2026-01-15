@@ -1,0 +1,33 @@
+{
+  "use_proxies": false,
+  "proxy_list": [],
+  "delay_range": [1.5, 3.0],
+  "max_retries": 3,
+  "timeout": 30,
+  "recrawl_days": 7,
+  "batch_size": 10,
+  "update_if_changed": true,
+  "schedule": {
+    "enabled": false,
+    "frequency": "daily",
+    "time": "02:00"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "crawler.log",
+    "max_size_mb": 10,
+    "backup_count": 5
+  },
+  "comments": {
+    "use_proxies": "Enable proxy rotation (requires proxy_list)",
+    "proxy_list": "List of proxy URLs, e.g., ['http://proxy1:8080', 'http://user:pass@proxy2:8080']",
+    "delay_range": "Random delay between requests [min, max] in seconds",
+    "max_retries": "Maximum retry attempts per fetch strategy",
+    "timeout": "Request timeout in seconds",
+    "recrawl_days": "Days before recrawling successfully fetched URLs",
+    "batch_size": "Number of URLs to process in one batch",
+    "update_if_changed": "Update database if content has changed",
+    "schedule.frequency": "Options: 'daily', 'weekly', or 'hourly'",
+    "schedule.time": "Time to run (HH:MM format for daily/weekly)"
+  }
+}

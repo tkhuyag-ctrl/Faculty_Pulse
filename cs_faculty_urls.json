@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.haverford.edu/users/jsikochi",
+    "faculty_name": "John Sikochi",
+    "department": "Computer Science",
+    "content_type": "Publication"
+  },
+  {
+    "url": "https://www.haverford.edu/users/slindenb",
+    "faculty_name": "Sara Lindenberg",
+    "department": "Computer Science",
+    "content_type": "Publication"
+  },
+  {
+    "url": "https://www.haverford.edu/users/dlrockmor",
+    "faculty_name": "Daniel Rockmore",
+    "department": "Computer Science",
+    "content_type": "Publication"
+  },
+  {
+    "url": "https://scholarship.haverford.edu/computerscience",
+    "faculty_name": "CS Department Publications",
+    "department": "Computer Science",
+    "content_type": "Publication"
+  }
+]

@@ -1,0 +1,18 @@
+# Core dependencies (already in your project)
+chromadb
+anthropic
+streamlit
+requests
+beautifulsoup4
+python-dotenv
+
+# PDF extraction
+pypdf
+PyMuPDF
+
+# New dependencies for automated crawler
+playwright
+schedule
+
+# Optional: for better logging
+colorlog

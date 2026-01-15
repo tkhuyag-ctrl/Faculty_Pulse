@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://www.haverford.edu/computer-science/faculty",
+    "faculty_name": "Computer Science Faculty",
+    "department": "Computer Science",
+    "content_type": "Publication",
+    "date_published": "2024-01-01T00:00:00Z"
+  },
+  {
+    "url": "https://example.com/research/paper1.pdf",
+    "faculty_name": "Dr. Jane Smith",
+    "department": "Biology",
+    "content_type": "Publication",
+    "date_published": "2024-06-15T00:00:00Z"
+  }
+]
