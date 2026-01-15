@@ -51,20 +51,49 @@ class FacultyPulseChatbot:
         Returns:
             Dictionary with query results
         """
+        print(f"\n{'='*60}")
+        print(f"[DATABASE QUERY]")
+        print(f"Query: {query}")
+        print(f"n_results: {n_results}")
+        print(f"content_type: {content_type}")
+        print(f"department: {department}")
+
         results = self.db_manager.query_submissions(
             query_text=query,
             n_results=n_results,
             content_type=content_type,
             department=department
         )
+
+        num_results = len(results['ids'][0]) if results['ids'] else 0
+        print(f"\n[DATABASE RESULTS]")
+        print(f"Number of results returned: {num_results}")
+        if num_results > 0:
+            print(f"\nTop results:")
+            for i, (doc_id, metadata, distance) in enumerate(zip(
+                results['ids'][0][:3],  # Show top 3
+                results['metadatas'][0][:3],
+                results['distances'][0][:3]
+            ), 1):
+                print(f"  {i}. ID: {doc_id}")
+                print(f"     Faculty: {metadata['faculty_name']}")
+                print(f"     Department: {metadata['department']}")
+                print(f"     Type: {metadata['content_type']}")
+                print(f"     Distance: {distance:.4f} (Relevance: {1-distance:.4f})")
+                print(f"     Content preview: {results['documents'][0][i-1][:100]}...")
+        else:
+            print("  No results found")
+        print(f"{'='*60}\n")
+
         return results
 
-    def format_database_results(self, results: Dict) -> str:
+    def format_database_results(self, results: Dict, max_total_chars: int = 100000) -> str:
         """
-        Format database results into a readable string for the LLM
+        Format database results with intelligent adaptive truncation for RAG
 
         Args:
             results: ChromaDB query results
+            max_total_chars: Maximum total characters to include (default 100K for Claude context)
 
         Returns:
             Formatted string with results
@@ -73,19 +102,49 @@ class FacultyPulseChatbot:
             return "No relevant information found in the database."
 
         formatted = "Here is the relevant information from the faculty database:\n\n"
+        total_chars = 0
 
         for i, (doc, metadata, distance) in enumerate(zip(
             results['documents'][0],
             results['metadatas'][0],
             results['distances'][0]
         ), 1):
-            formatted += f"[Result {i} - Relevance: {1-distance:.2f}]\n"
+            relevance = 1 - distance
+
+            # Adaptive truncation based on relevance and remaining budget
+            if relevance > 0.7 and total_chars < max_total_chars * 0.7:
+                # High relevance: include more text (up to 30K chars for full PDFs)
+                content_limit = min(30000, max_total_chars - total_chars - 1000)
+            elif relevance > 0.5 and total_chars < max_total_chars * 0.9:
+                # Medium relevance: include moderate text (up to 10K chars)
+                content_limit = min(10000, max_total_chars - total_chars - 1000)
+            elif relevance > 0.3:
+                # Lower relevance: include basic text (up to 2K chars)
+                content_limit = min(2000, max_total_chars - total_chars - 1000)
+            else:
+                # Very low relevance: minimal text (500 chars)
+                content_limit = 500
+
+            content = doc[:content_limit]
+            truncated = len(doc) > content_limit
+
+            formatted += f"[Result {i} - Relevance: {relevance:.2f}]\n"
             formatted += f"Faculty: {metadata['faculty_name']}\n"
             formatted += f"Department: {metadata['department']}\n"
             formatted += f"Type: {metadata['content_type']}\n"
             formatted += f"Date: {metadata['date_published']}\n"
-            formatted += f"Content: {doc[:500]}{'...' if len(doc) > 500 else ''}\n"
-            formatted += "-" * 80 + "\n\n"
+            formatted += f"Content ({len(doc):,} chars total, showing {len(content):,}):\n"
+            formatted += content
+            if truncated:
+                formatted += f"\n\n[Document truncated. Full document: {len(doc):,} characters]"
+            formatted += "\n" + "-" * 80 + "\n\n"
+
+            total_chars += len(content)
+
+            # Stop if approaching the limit
+            if total_chars > max_total_chars:
+                formatted += f"\n[Additional results truncated to stay within context limits]\n"
+                break
 
         return formatted
 
@@ -100,6 +159,11 @@ class FacultyPulseChatbot:
         Returns:
             Natural language response from Claude
         """
+        print(f"\n[CLAUDE API CALL]")
+        print(f"User query: {user_query}")
+        print(f"Database context length: {len(database_results)} characters")
+        print(f"Conversation history: {len(self.conversation_history)} messages")
+
         system_prompt = """You are a helpful assistant for the Faculty Pulse system at Haverford College.
 Your role is to answer questions about faculty members, their publications, awards, and talks.
 
@@ -132,15 +196,22 @@ Based on the information above, please provide a helpful answer to the user's qu
             "content": current_message
         })
 
+        print(f"Calling Claude API (model: claude-3-haiku-20240307)...")
+
         # Call Claude API
         response = self.client.messages.create(
             model="claude-3-haiku-20240307",
-            max_tokens=1024,
+            max_tokens=4096,  # Increased for longer, detailed responses
             system=system_prompt,
             messages=messages
         )
 
         assistant_response = response.content[0].text
+
+        print(f"\n[CLAUDE RESPONSE]")
+        print(f"Response length: {len(assistant_response)} characters")
+        print(f"Response preview: {assistant_response[:200]}...")
+        print(f"API usage - Input tokens: {response.usage.input_tokens}, Output tokens: {response.usage.output_tokens}")
 
         # Update conversation history (keep last 10 exchanges)
         self.conversation_history.append({"role": "user", "content": user_query})
@@ -170,6 +241,10 @@ Based on the information above, please provide a helpful answer to the user's qu
         Returns:
             Dictionary with response and metadata
         """
+        print(f"\n{'#'*60}")
+        print(f"# NEW CHAT REQUEST")
+        print(f"{'#'*60}")
+
         # Query the database
         db_results = self.query_database(
             query=user_query,
@@ -180,15 +255,23 @@ Based on the information above, please provide a helpful answer to the user's qu
 
         # Format results for LLM
         formatted_results = self.format_database_results(db_results)
+        print(f"\n[FORMATTED RESULTS FOR CLAUDE]")
+        print(f"Formatted results preview:\n{formatted_results[:500]}...")
 
         # Generate natural language response
         response = self.generate_response(user_query, formatted_results)
 
-        return {
+        result = {
             "response": response,
             "database_results": db_results,
             "num_results": len(db_results['ids'][0]) if db_results['ids'] else 0
         }
+
+        print(f"\n[CHAT COMPLETE]")
+        print(f"Returning {result['num_results']} results to user")
+        print(f"{'#'*60}\n")
+
+        return result
 
     def reset_conversation(self):
         """Reset the conversation history"""

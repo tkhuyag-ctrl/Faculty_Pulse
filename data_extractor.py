@@ -9,18 +9,36 @@ from typing import List, Dict
 import time
 import os
 import io
+import logging
+from datetime import datetime
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(f'data_extraction_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', encoding='utf-8')
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
 try:
     import pypdf
     PDF_SUPPORT = True
+    logger.info("pypdf library loaded successfully")
 except ImportError:
     PDF_SUPPORT = False
-    print("Warning: pypdf not installed. PDF extraction will not be available.")
+    logger.warning("pypdf not installed. PDF extraction will not be available.")
 
 try:
     import fitz  # PyMuPDF
     PYMUPDF_SUPPORT = True
+    logger.info("PyMuPDF library loaded successfully")
 except ImportError:
     PYMUPDF_SUPPORT = False
+    logger.warning("PyMuPDF not installed. Falling back to pypdf for PDF extraction.")
 
 
 class DataExtractor:
@@ -34,6 +52,7 @@ class DataExtractor:
             delay: Delay in seconds between requests to avoid overwhelming servers
             max_retries: Maximum number of retry attempts for failed requests
         """
+        logger.info(f"Initializing DataExtractor (delay={delay}s, max_retries={max_retries})")
         self.delay = delay
         self.max_retries = max_retries
         self.headers = {
@@ -65,37 +84,55 @@ class DataExtractor:
         Raises:
             Exception: If PDF extraction fails
         """
+        logger.info(f"Starting PDF extraction (size: {len(pdf_content)} bytes)")
+
         # Try PyMuPDF first (generally better extraction quality)
         if PYMUPDF_SUPPORT:
             try:
+                logger.debug("Attempting PyMuPDF extraction")
                 pdf_document = fitz.open(stream=pdf_content, filetype="pdf")
+                page_count = pdf_document.page_count
+                logger.info(f"PDF has {page_count} pages")
+
                 text = ""
-                for page_num in range(pdf_document.page_count):
+                for page_num in range(page_count):
                     page = pdf_document[page_num]
-                    text += page.get_text()
+                    page_text = page.get_text()
+                    text += page_text
+                    logger.debug(f"Extracted {len(page_text)} chars from page {page_num + 1}/{page_count}")
                 pdf_document.close()
 
                 # Clean up text
                 text = ' '.join(text.split())
+                logger.info(f"PyMuPDF extraction successful: {len(text)} characters extracted")
                 return text
             except Exception as e:
-                print(f"  PyMuPDF extraction failed: {str(e)}, trying pypdf...")
+                logger.warning(f"PyMuPDF extraction failed: {str(e)}, trying pypdf...")
 
         # Fall back to pypdf
         if PDF_SUPPORT:
             try:
+                logger.debug("Attempting pypdf extraction")
                 pdf_file = io.BytesIO(pdf_content)
                 pdf_reader = pypdf.PdfReader(pdf_file)
+                page_count = len(pdf_reader.pages)
+                logger.info(f"PDF has {page_count} pages")
+
                 text = ""
-                for page in pdf_reader.pages:
-                    text += page.extract_text()
+                for page_num, page in enumerate(pdf_reader.pages, 1):
+                    page_text = page.extract_text()
+                    text += page_text
+                    logger.debug(f"Extracted {len(page_text)} chars from page {page_num}/{page_count}")
 
                 # Clean up text
                 text = ' '.join(text.split())
+                logger.info(f"pypdf extraction successful: {len(text)} characters extracted")
                 return text
             except Exception as e:
+                logger.error(f"pypdf extraction failed: {str(e)}")
                 raise Exception(f"pypdf extraction failed: {str(e)}")
 
+        logger.error("No PDF extraction library available")
         raise Exception("No PDF extraction library available. Please install pypdf or PyMuPDF.")
 
     def extract_text_from_url(self, url: str) -> str:
@@ -111,12 +148,12 @@ class DataExtractor:
         Raises:
             Exception: If URL cannot be accessed or parsed after all retries
         """
-        print(f"  Fetching content from: {url}")
+        logger.info(f"Fetching content from URL: {url}")
 
         # Detect if URL likely points to a PDF
         is_likely_pdf = url.lower().endswith('.pdf') or '/pdf/' in url.lower()
         if is_likely_pdf:
-            print(f"  Detected PDF URL, will attempt PDF extraction...")
+            logger.info("Detected PDF URL based on extension/path")
 
         last_error = None
         for attempt in range(self.max_retries):

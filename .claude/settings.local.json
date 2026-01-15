@@ -26,7 +26,9 @@
       "Bash(taskkill /F /FI \"COMMANDLINE eq *download_and_extract_pdfs.py*\")",
       "Bash(timeout:*)",
       "Bash(\".venv\\\\Scripts\\\\python.exe\" cv_crawler_with_openalex.py)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(git add:*)",
+      "Bash(del nul)"
     ]
   }
 }
