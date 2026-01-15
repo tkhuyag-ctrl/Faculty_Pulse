@@ -12,7 +12,23 @@
       "Bash(findstr:*)",
       "Bash(pip install:*)",
       "Bash(python view_db_summary.py:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\":*)",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\" view_db_summary.py)",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\" show_database_stats.py)",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\" -c \"from smart_fetcher import SmartFetcher; f = SmartFetcher\\(\\); f._init_playwright\\(\\); p = f.playwright_context.new_page\\(\\); p.goto\\(''https://www.haverford.edu/academics/faculty'', wait_until=''load'', timeout=90000\\); import time; time.sleep\\(5\\); html = p.content\\(\\); p.close\\(\\); f.close\\(\\); print\\(html[:5000]\\)\")",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\" simple_faculty_extractor.py)",
+      "Bash(if [ -f \"haverford_all_faculty.json\" ])",
+      "Bash(then echo \"File exists\")",
+      "Bash(else echo \"File not created yet\")",
+      "Bash(pkill:*)",
+      "Bash(taskkill /F /FI \"WINDOWTITLE eq python*\")",
+      "Bash(taskkill /F /FI \"COMMANDLINE eq *download_and_extract_pdfs.py*\")",
+      "Bash(timeout:*)",
+      "Bash(\".venv\\\\Scripts\\\\python.exe\" cv_crawler_with_openalex.py)",
+      "Bash(tee:*)",
+      "Bash(git add:*)",
+      "Bash(del nul)"
     ]
   }
 }

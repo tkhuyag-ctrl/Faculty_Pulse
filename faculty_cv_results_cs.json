@@ -1,0 +1,74 @@
+[
+  {
+    "name": "John Dougherty",
+    "openalex_id": "A5015357170",
+    "department": "Computer Science",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Sorelle Friedler",
+    "openalex_id": "A5086384189",
+    "department": "Computer Science",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Alvin Grissom",
+    "openalex_id": "A5088386242",
+    "department": "Computer Science",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Steven Lindell",
+    "openalex_id": "A5031196296",
+    "department": "Computer Science",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Sara Mathieson",
+    "openalex_id": "A5002178567",
+    "department": "Unknown",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "David Wonnacott",
+    "openalex_id": "A5048744223",
+    "department": "Computer Science",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Jane Chandlee",
+    "openalex_id": "A5068186620",
+    "department": "Unknown",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Andrea Lommen",
+    "openalex_id": "A5024054187",
+    "department": "Physics",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  },
+  {
+    "name": "Robert Manning",
+    "openalex_id": "A5019167160",
+    "department": "Mathematics",
+    "cv_found": false,
+    "cv_stored": false,
+    "error": "No CV link found"
+  }
+]
