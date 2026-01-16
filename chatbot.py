@@ -3,7 +3,7 @@ Faculty Pulse Chatbot
 A conversational interface for querying Haverford College faculty database
 """
 import os
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 from chroma_manager import ChromaDBManager
 from anthropic import Anthropic
 
@@ -32,37 +32,178 @@ class FacultyPulseChatbot:
         self.client = Anthropic(api_key=self.api_key, timeout=60.0)
         self.conversation_history = []
 
+        # Get available departments and content types for smart filtering
+        stats = self.get_database_stats()
+        self.available_departments = stats['departments']
+        self.available_content_types = list(stats['content_types'].keys())
+
+    def extract_filters_from_query(self, query: str, provided_department: Optional[str] = None,
+                                   provided_content_type: Optional[str] = None):
+        """
+        Intelligently extract department, content type, and temporal filters from natural language query
+
+        Args:
+            query: User's natural language query
+            provided_department: Department filter from UI (takes precedence)
+            provided_content_type: Content type filter from UI (takes precedence)
+
+        Returns:
+            Tuple of (department, content_type, year_filter, temporal_context)
+        """
+        query_lower = query.lower()
+
+        # If filters already provided via UI, use those
+        department = provided_department
+        content_type = provided_content_type
+
+        # Department abbreviations and keywords mapping
+        dept_keywords = {
+            'Mathematics': ['math', 'mathematics', 'maths'],
+            'Physics': ['physics', 'physical'],
+            'Chemistry': ['chem', 'chemistry', 'chemical'],
+            'Biology': ['bio', 'biology', 'biological'],
+            'Computer Science': ['cs', 'computer science', 'computing', 'compsci'],
+            'Psychology': ['psych', 'psychology', 'psychological'],
+            'English': ['english', 'literature'],
+            'History': ['history', 'historical'],
+            'Economics': ['econ', 'economics', 'economic'],
+            'Political Science': ['poli sci', 'political science', 'politics', 'polisci'],
+            'Sociology': ['soc', 'sociology', 'sociological'],
+            'Anthropology': ['anthro', 'anthropology'],
+            'Philosophy': ['phil', 'philosophy'],
+            'Linguistics': ['ling', 'linguistics'],
+            'Music': ['music', 'musical'],
+            'Religion': ['religion', 'religious'],
+        }
+
+        # Extract department if not provided
+        if not department:
+            for dept in self.available_departments:
+                # Check exact department name match
+                if dept.lower() in query_lower:
+                    department = dept
+                    break
+
+                # Check keyword matches
+                if dept in dept_keywords:
+                    for keyword in dept_keywords[dept]:
+                        # Match whole words or at word boundaries
+                        if f' {keyword} ' in f' {query_lower} ' or query_lower.startswith(keyword + ' ') or query_lower.endswith(' ' + keyword):
+                            department = dept
+                            break
+                    if department:
+                        break
+
+        # Extract content type if not provided
+        # IMPORTANT: Be conservative - only filter content type when explicitly asking ABOUT that type
+        # Don't filter when asking "who would be good FOR a talk" (wants all content to assess expertise)
+        if not content_type:
+            # Publications - clear intent to see research
+            if any(word in query_lower for word in ['publication', 'paper', 'article', 'published', 'publish']):
+                content_type = 'Publication'
+            # Awards - clear intent to see honors
+            elif any(word in query_lower for word in ['award', 'prize', 'honor', 'grant', 'fellowship']):
+                content_type = 'Award'
+            # Talks - ONLY filter if clearly asking about past talks (not "for a talk", "give a talk")
+            # Check for phrases indicating PAST talks vs FUTURE potential
+            elif any(phrase in query_lower for phrase in ['gave a talk', 'given talks', 'spoke at', 'speaking at', 'presented at']):
+                content_type = 'Talk'
+            # Don't filter for: "for a talk", "give a talk", "best for talk" - these want ALL data to assess expertise
+
+        # Extract year filter and temporal context
+        import re
+        year_filter = None
+        temporal_context = None
+
+        # Look for specific years (2020-2026)
+        years = re.findall(r'\b(202[0-6])\b', query)
+        if years:
+            year_filter = years[0]  # Use the first year found
+            temporal_context = f"year_{year_filter}"
+            print(f"[YEAR] Year filter extracted: {year_filter}")
+
+        # Check for temporal keywords indicating recent/old
+        elif 'recent' in query_lower or 'latest' in query_lower or 'newest' in query_lower or 'new' in query_lower:
+            from datetime import datetime
+            current_year = datetime.now().year
+            temporal_context = "recent"
+            # For "recent", use current year and previous 2 years for better coverage
+            year_filter = [str(current_year), str(current_year - 1), str(current_year - 2)]
+            print(f"[YEAR] Temporal context: RECENT - filtering for {year_filter}")
+        elif 'old' in query_lower or 'oldest' in query_lower or 'earlier' in query_lower:
+            temporal_context = "old"
+            # For "old", we'll use 2020-2022 (earlier years in our dataset)
+            year_filter = ["2020", "2021", "2022"]  # List of years to match
+            print(f"[YEAR] Temporal context: OLD - filtering for 2020-2022")
+
+        return department, content_type, year_filter, temporal_context
+
     def query_database(
         self,
         query: str,
         n_results: int = 5,
         content_type: Optional[str] = None,
-        department: Optional[str] = None
+        department: Optional[str] = None,
+        year_filter: Optional[Union[str, List[str]]] = None
     ) -> Dict:
         """
-        Query the vector database
+        Query the vector database with semantic and metadata filtering
 
         Args:
             query: User query string
             n_results: Number of results to retrieve
             content_type: Optional filter by content type
             department: Optional filter by department
+            year_filter: Optional year filter - single year string or list of years
 
         Returns:
             Dictionary with query results
         """
+        # Enhance query for better semantic matching
+        import re
+        cleaned_query = query
+
+        # Strip temporal keywords - they don't help semantic search
+        temporal_words = ['recent', 'recently', 'latest', 'newest', 'new', 'current', 'old', 'oldest']
+        for word in temporal_words:
+            cleaned_query = re.sub(rf'\b{word}\b', '', cleaned_query, flags=re.IGNORECASE)
+
+        # Enhance "best for talk" type queries to focus on expertise/achievements
+        # Instead of searching for "best for a talk", search for "expert research achievements"
+        if re.search(r'\b(best|good|suitable|recommend|top)\b.*\b(for|give|giving)\b.*\b(talk|presentation|lecture)', query, re.IGNORECASE):
+            # Keep the department if specified
+            dept_match = re.search(r'\bin\s+(\w+)', query, re.IGNORECASE)
+            if dept_match:
+                dept = dept_match.group(1)
+                cleaned_query = f"{dept} faculty expert research achievements publications"
+            else:
+                cleaned_query = "faculty expert research achievements publications"
+            print(f"[QUERY ENHANCEMENT] Detected 'best for talk' query - enhanced to search for expertise")
+
+        # Clean up extra spaces
+        cleaned_query = ' '.join(cleaned_query.split())
+
+        # If query becomes empty after cleaning, use original
+        if not cleaned_query.strip():
+            cleaned_query = query
+
         print(f"\n{'='*60}")
         print(f"[DATABASE QUERY]")
-        print(f"Query: {query}")
+        print(f"Original query: {query}")
+        if cleaned_query != query:
+            print(f"Cleaned query (temporal words removed): {cleaned_query}")
         print(f"n_results: {n_results}")
         print(f"content_type: {content_type}")
         print(f"department: {department}")
+        if year_filter:
+            print(f"year_filter: {year_filter}")
 
         results = self.db_manager.query_submissions(
-            query_text=query,
+            query_text=cleaned_query,  # Use cleaned query for better semantic matching
             n_results=n_results,
             content_type=content_type,
-            department=department
+            department=department,
+            year_filter=year_filter  # Add year filter for temporal queries
         )
 
         num_results = len(results['ids'][0]) if results['ids'] else 0
@@ -164,22 +305,42 @@ class FacultyPulseChatbot:
         print(f"Database context length: {len(database_results)} characters")
         print(f"Conversation history: {len(self.conversation_history)} messages")
 
-        system_prompt = """You are a helpful assistant for the Faculty Pulse system at Haverford College.
-Your role is to answer questions about faculty members, their publications, awards, and talks.
+        system_prompt = """You are an expert research assistant for the Faculty Pulse system at Haverford College.
+Your role is to provide comprehensive, detailed answers about faculty members, their publications, awards, talks, and research.
 
-You will be provided with:
-1. A user's question
-2. Relevant information retrieved from the faculty database
+IMPORTANT GUIDELINES:
 
-Your task is to:
-- Provide clear, concise answers based on the database information
-- If the database has relevant information, synthesize it into a natural response
-- If the database doesn't have relevant information, politely say so
-- Cite specific faculty names, departments, and dates when relevant
-- Be conversational and friendly
-- If asked about multiple faculty or topics, organize your response clearly
+1. **Be Detailed and Thorough**: Provide rich, informative responses with specific details from the database
+2. **Structure Your Response**: Use clear organization with sections, bullet points, or numbered lists when appropriate
+3. **Include All Relevant Information**:
+   - Faculty names and departments
+   - Specific titles of publications/awards/talks
+   - Dates and years
+   - Dollar amounts for grants
+   - Key details and descriptions
+   - Source links when available
 
-Do NOT make up information that isn't in the database results."""
+4. **Context and Analysis**:
+   - Explain the significance of achievements
+   - Provide context about awards and grants
+   - Connect related information together
+   - Identify patterns or themes across faculty work
+
+5. **Comprehensive Coverage**: If multiple relevant results exist, discuss all of them, not just one or two
+
+6. **Formatting**: Use markdown formatting for better readability:
+   - **Bold** for faculty names and important terms
+   - Bullet points for lists
+   - Clear paragraph breaks
+
+7. **Accuracy**: ONLY use information from the database results provided. Do NOT make up or infer information not present.
+
+8. **Temporal Queries**: When users ask about "recent" or "latest" items:
+   - Results are ranked by semantic relevance, NOT by date
+   - Check the dates in the metadata and mention the most recent items you find
+   - If no recent items appear in the results, acknowledge this limitation
+
+9. **Helpful Tone**: Be professional, informative, and enthusiastic about faculty achievements."""
 
         # Build the conversation with context
         messages = self.conversation_history.copy()
@@ -198,12 +359,13 @@ Based on the information above, please provide a helpful answer to the user's qu
 
         print(f"Calling Claude API (model: claude-3-haiku-20240307)...")
 
-        # Call Claude API
+        # Call Claude API with Haiku (reliable, fast model)
         response = self.client.messages.create(
             model="claude-3-haiku-20240307",
-            max_tokens=4096,  # Increased for longer, detailed responses
+            max_tokens=4096,
             system=system_prompt,
-            messages=messages
+            messages=messages,
+            timeout=60.0  # 60 second timeout to prevent hangs
         )
 
         assistant_response = response.content[0].text
@@ -245,12 +407,24 @@ Based on the information above, please provide a helpful answer to the user's qu
         print(f"# NEW CHAT REQUEST")
         print(f"{'#'*60}")
 
-        # Query the database
+        # Intelligently extract filters from the query
+        smart_department, smart_content_type, year_filter, temporal_context = self.extract_filters_from_query(
+            user_query, department, content_type
+        )
+
+        print(f"\n[SMART FILTER EXTRACTION]")
+        print(f"Original filters - Department: {department}, Content Type: {content_type}")
+        print(f"Extracted filters - Department: {smart_department}, Content Type: {smart_content_type}")
+        if year_filter:
+            print(f"Year filter: {year_filter} (context: {temporal_context})")
+
+        # Query the database with smart filters including year
         db_results = self.query_database(
             query=user_query,
             n_results=n_results,
-            content_type=content_type,
-            department=department
+            content_type=smart_content_type,
+            department=smart_department,
+            year_filter=year_filter
         )
 
         # Format results for LLM

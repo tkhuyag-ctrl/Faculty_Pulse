@@ -1,0 +1,42 @@
+[
+  {
+    "faculty_name": "Kristen E. Whalen",
+    "department": "Biology",
+    "content_type": "Award",
+    "title": "Henry Dreyfus Teacher-Scholar Award",
+    "description": "Associate Professor of Biology Kristen E. Whalen won the Henry Dreyfus Teacher-Scholar Award",
+    "date_published": "2024-01-01",
+    "year": "2024",
+    "source": "https://www.haverford.edu/college-communications/news/kristen-whalen-wins-henry-dreyfus-teacher-scholar-award"
+  },
+  {
+    "faculty_name": "Robert Fairman",
+    "department": "Biology",
+    "content_type": "Award",
+    "title": "NIH Award",
+    "description": "Professor of Biology Robert Fairman received an NIH Award",
+    "date_published": "2024-01-01",
+    "year": "2024",
+    "source": "https://www.haverford.edu/college-communications/news/robert-fairman-receives-nih-award"
+  },
+  {
+    "faculty_name": "Kristen E. Whalen",
+    "department": "Biology",
+    "content_type": "Award",
+    "title": "NSF Award",
+    "description": "Associate Professor of Biology Kristen E. Whalen earned an NSF Award",
+    "date_published": "2024-01-01",
+    "year": "2024",
+    "source": "https://www.haverford.edu/college-communications/news/kristen-whalen-earns-nsf-award"
+  },
+  {
+    "faculty_name": "Alexander J. Norquist",
+    "department": "Chemistry",
+    "content_type": "Talk",
+    "title": "Commencement Hooding Marshal",
+    "description": "Professor of Chemistry Alexander J. Norquist served as Commencement Hooding Marshal on May 17, 2025",
+    "date_published": "2025-05-17",
+    "year": "2025",
+    "source": "Commencement 2025"
+  }
+]
