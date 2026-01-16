@@ -37,22 +37,34 @@ class OpenAlexPublicationsCrawler:
         self.results = []
 
     def load_cs_faculty_with_openalex(self, json_file: str) -> List[Dict]:
-        """Load CS faculty who have OpenAlex IDs"""
+        """Load ALL faculty who have OpenAlex IDs and known departments"""
         logger.info(f"Loading faculty data from: {json_file}")
 
         with open(json_file, 'r', encoding='utf-8') as f:
             all_faculty = json.load(f)
 
-        # Filter for CS faculty with OpenAlex IDs
-        cs_faculty = [
+        # Filter for faculty with OpenAlex IDs AND known departments (not "Unknown")
+        valid_faculty = [
             f for f in all_faculty
-            if f.get('department') == 'Computer Science' and
-               f.get('openalex_id') and
-               f['openalex_id'] != 'null'
+            if f.get('openalex_id') and
+               f['openalex_id'] != 'null' and
+               f.get('department') and
+               f.get('department') != 'Unknown'
         ]
 
-        logger.info(f"Found {len(cs_faculty)} CS faculty with OpenAlex IDs")
-        return cs_faculty
+        logger.info(f"Found {len(valid_faculty)} faculty with OpenAlex IDs and known departments")
+
+        # Show department breakdown
+        dept_counts = {}
+        for f in valid_faculty:
+            dept = f['department']
+            dept_counts[dept] = dept_counts.get(dept, 0) + 1
+
+        logger.info("Department breakdown:")
+        for dept, count in sorted(dept_counts.items()):
+            logger.info(f"  {dept}: {count} faculty")
+
+        return valid_faculty
 
     def fetch_publications(self, openalex_id: str, from_year: int = 2020) -> List[Dict]:
         """
@@ -115,11 +127,12 @@ class OpenAlexPublicationsCrawler:
         return publications
 
     def format_publication(self, pub: Dict, faculty_info: Dict) -> Dict:
-        """Format publication data for storage"""
+        """Format publication data for storage with enhanced PDF/date extraction"""
         # Extract key information
         title = pub.get('title', 'Untitled')
         pub_year = pub.get('publication_year')
-        pub_date = pub.get('publication_date', '')
+        pub_date = pub.get('publication_date', '')  # Full date YYYY-MM-DD
+        work_id = pub.get('id', '')
 
         # Get abstract/summary
         abstract = pub.get('abstract', '')
@@ -127,11 +140,14 @@ class OpenAlexPublicationsCrawler:
             abstract = pub.get('abstract_inverted_index', '')
             if isinstance(abstract, dict):
                 # Reconstruct abstract from inverted index
-                words = [''] * (max(max(positions) for positions in abstract.values()) + 1 if abstract else 0)
-                for word, positions in abstract.items():
-                    for pos in positions:
-                        words[pos] = word
-                abstract = ' '.join(words)
+                try:
+                    words = [''] * (max(max(positions) for positions in abstract.values()) + 1 if abstract else 0)
+                    for word, positions in abstract.items():
+                        for pos in positions:
+                            words[pos] = word
+                    abstract = ' '.join(words).strip()
+                except:
+                    abstract = ''
 
         # Authors
         authors = []
@@ -143,25 +159,49 @@ class OpenAlexPublicationsCrawler:
         authors_str = ', '.join(authors) if authors else 'Unknown'
 
         # Venue
-        venue = pub.get('primary_location', {}).get('source', {})
+        primary_location = pub.get('primary_location', {})
+        venue = primary_location.get('source', {})
         venue_name = venue.get('display_name', 'Unknown venue')
+
+        # PDF/Open Access
+        open_access = pub.get('open_access', {})
+        is_oa = open_access.get('is_oa', False)
+        oa_url = open_access.get('oa_url', '')
+        pdf_url = primary_location.get('pdf_url', '') or oa_url
 
         # DOI
         doi = pub.get('doi', '')
+        if doi and doi.startswith('https://doi.org/'):
+            doi = doi.replace('https://doi.org/', '')
 
         # Citations
         cited_by_count = pub.get('cited_by_count', 0)
 
-        # Build content text for ChromaDB
+        # Publication type
+        pub_type = pub.get('type', 'article')
+
+        # Build enriched content text for ChromaDB
         content_parts = [
-            f"Title: {title}",
+            f"Faculty: {faculty_info['name']}",
+            f"Department: {faculty_info.get('department', 'Unknown')}",
+            f"OpenAlex ID: {faculty_info.get('openalex_id', '')}",
+            "",
+            f"Publication Title: {title}",
             f"Authors: {authors_str}",
             f"Year: {pub_year}",
-            f"Published in: {venue_name}",
         ]
+
+        if pub_date:
+            content_parts.append(f"Publication Date: {pub_date}")
+
+        content_parts.append(f"Publication Type: {pub_type}")
+        content_parts.append(f"Published in: {venue_name}")
 
         if doi:
             content_parts.append(f"DOI: {doi}")
+
+        if pdf_url:
+            content_parts.append(f"PDF/Open Access: {pdf_url}")
 
         if abstract:
             content_parts.append(f"\nAbstract: {abstract}")
@@ -170,25 +210,29 @@ class OpenAlexPublicationsCrawler:
 
         content = '\n'.join(content_parts)
 
-        # Metadata for ChromaDB
+        # Enhanced metadata for ChromaDB
         metadata = {
             'author': faculty_info['name'],
-            'department': faculty_info.get('department', 'Computer Science'),
+            'department': faculty_info.get('department', 'Unknown'),
             'openalex_id': faculty_info.get('openalex_id', ''),
             'orcid': faculty_info.get('orcid', '') or '',
             'title': title[:500],  # Limit length for metadata
             'year': str(pub_year) if pub_year else '',
-            'date': pub_date,
+            'date': pub_date or (f"{pub_year}-01-01" if pub_year else ''),
             'venue': venue_name[:200],
             'doi': doi,
+            'pdf_url': pdf_url,
+            'is_open_access': str(is_oa),
+            'publication_type': pub_type,
             'cited_by_count': cited_by_count,
             'content_type': 'publication',
-            'openalex_work_id': pub.get('id', '')
+            'openalex_work_id': work_id
         }
 
         return {
             'content': content,
-            'metadata': metadata
+            'metadata': metadata,
+            'work_id': work_id
         }
 
     def store_publications(self, publications: List[Dict], faculty_info: Dict) -> int:
@@ -256,11 +300,12 @@ class OpenAlexPublicationsCrawler:
     def run(self, json_file: str = "haverford_faculty_with_openalex.json"):
         """Main execution"""
         print("="*80)
-        print("OPENALEX PUBLICATIONS CRAWLER")
+        print("OPENALEX PUBLICATIONS CRAWLER - ENHANCED")
         print("="*80)
         print("\nFetching publications from OpenAlex API")
-        print("Filter: Computer Science faculty with OpenAlex IDs")
+        print("Filter: ALL faculty with OpenAlex IDs and known departments")
         print("Date range: 2020 onwards")
+        print("Features: Complete dates, PDF links, full abstracts")
         print()
 
         # Load faculty
@@ -275,7 +320,10 @@ class OpenAlexPublicationsCrawler:
 
         # Process each faculty
         for i, faculty in enumerate(faculty_list, 1):
-            print(f"\n[{i}/{len(faculty_list)}] {faculty['name']}")
+            try:
+                print(f"\n[{i}/{len(faculty_list)}] {faculty['name']}")
+            except UnicodeEncodeError:
+                print(f"\n[{i}/{len(faculty_list)}] {faculty['name'].encode('ascii', 'replace').decode()}")
 
             result = self.process_faculty(faculty)
             self.results.append(result)

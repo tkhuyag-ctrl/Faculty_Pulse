@@ -22,6 +22,17 @@
     "cited_by_count": 1478
   },
   {
+    "name": "Eman Al-Drous",
+    "department": "Biology",
+    "profile_url": "https://www.haverford.edu/users/ealdrous",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Suzanne Amador Kane",
     "department": "Physics",
     "profile_url": "https://www.haverford.edu/users/samador",
@@ -31,6 +42,17 @@
     "openalex_display_name": "Suzanne Amador Kane",
     "works_count": 86,
     "cited_by_count": 848
+  },
+  {
+    "name": "Koffi Anyinefa",
+    "department": "French",
+    "profile_url": "https://www.haverford.edu/users/kanyinef",
+    "orcid": null,
+    "openalex_id": "A5007362339",
+    "openalex_url": "https://openalex.org/A5007362339",
+    "openalex_display_name": "Koffi Anyinefa",
+    "works_count": 31,
+    "cited_by_count": 40
   },
   {
     "name": "Tarik Aougab",
@@ -88,6 +110,17 @@
     "cited_by_count": 388
   },
   {
+    "name": "Sue Benston",
+    "department": "English",
+    "profile_url": "https://www.haverford.edu/users/sbenston",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Kimberly Benston",
     "department": "English",
     "profile_url": "https://www.haverford.edu/users/kbenston",
@@ -97,6 +130,28 @@
     "openalex_display_name": "Kimberly W. Benston",
     "works_count": 50,
     "cited_by_count": 374
+  },
+  {
+    "name": "Eriko Best",
+    "department": "History",
+    "profile_url": "https://www.haverford.edu/users/ebest",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Emily Black",
+    "department": "Psychology",
+    "profile_url": "https://www.haverford.edu/users/eblack1",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
   },
   {
     "name": "Frances Rose Blase",
@@ -154,6 +209,17 @@
     "cited_by_count": 0
   },
   {
+    "name": "Imke Brust",
+    "department": "Biology",
+    "profile_url": "https://www.haverford.edu/users/ibrust",
+    "orcid": null,
+    "openalex_id": "A5023350617",
+    "openalex_url": "https://openalex.org/A5023350617",
+    "openalex_display_name": "Imke Brust",
+    "works_count": 7,
+    "cited_by_count": 0
+  },
+  {
     "name": "Ted Brzinski",
     "department": "Physics",
     "profile_url": "https://www.haverford.edu/users/tbrzinski",
@@ -163,6 +229,28 @@
     "openalex_display_name": "Theodore A. Brzinski",
     "works_count": 38,
     "cited_by_count": 567
+  },
+  {
+    "name": "Michael Burri",
+    "department": "Biology",
+    "profile_url": "https://www.haverford.edu/users/mburri",
+    "orcid": null,
+    "openalex_id": "A5020443297",
+    "openalex_url": "https://openalex.org/A5020443297",
+    "openalex_display_name": "Michael Burri",
+    "works_count": 33,
+    "cited_by_count": 66
+  },
+  {
+    "name": "Israel Burshatin",
+    "department": "Spanish",
+    "profile_url": "https://www.haverford.edu/users/iburshat",
+    "orcid": null,
+    "openalex_id": "A5071173601",
+    "openalex_url": "https://openalex.org/A5071173601",
+    "openalex_display_name": "Israel Burshatin",
+    "works_count": 29,
+    "cited_by_count": 138
   },
   {
     "name": "Lynne Butler",
@@ -209,6 +297,17 @@
     "cited_by_count": 890
   },
   {
+    "name": "Roberto Castillo Sandoval",
+    "department": "Anthropology",
+    "profile_url": "https://www.haverford.edu/users/rcastill",
+    "orcid": null,
+    "openalex_id": "A5066945094",
+    "openalex_url": "https://openalex.org/A5066945094",
+    "openalex_display_name": "Roberto Castillo Sandoval",
+    "works_count": 14,
+    "cited_by_count": 46
+  },
+  {
     "name": "Joseph Cerrone",
     "department": "Political Science",
     "profile_url": "https://www.haverford.edu/users/jcerrone",
@@ -220,9 +319,31 @@
     "cited_by_count": 0
   },
   {
+    "name": "Jane Chandlee",
+    "department": "Linguistics",
+    "profile_url": "https://www.haverford.edu/users/jchandlee",
+    "orcid": null,
+    "openalex_id": "A5068186620",
+    "openalex_url": "https://openalex.org/A5068186620",
+    "openalex_display_name": "Jane Chandlee",
+    "works_count": 40,
+    "cited_by_count": 721
+  },
+  {
     "name": "Lou Charkoudian",
     "department": "Chemistry",
     "profile_url": "https://www.haverford.edu/users/lcharkou",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Kin Cheung",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/kcheung1",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -264,9 +385,42 @@
     "cited_by_count": 717
   },
   {
+    "name": "Kathryne Corbin",
+    "department": "Chemistry",
+    "profile_url": "https://www.haverford.edu/users/kacorbin",
+    "orcid": null,
+    "openalex_id": "A5088503328",
+    "openalex_url": "https://openalex.org/A5088503328",
+    "openalex_display_name": "Kathryne A. Corbin",
+    "works_count": 7,
+    "cited_by_count": 4
+  },
+  {
+    "name": "Christophe Corbin",
+    "department": "Classics",
+    "profile_url": "https://www.haverford.edu/users/ccorbin1",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Julia Costacurta",
     "department": "Mathematics",
     "profile_url": "https://www.haverford.edu/users/jcostacurt",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Jessica Croteau",
+    "department": "Sociology",
+    "profile_url": "https://www.haverford.edu/users/jcroteau",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -330,6 +484,17 @@
     "cited_by_count": 237
   },
   {
+    "name": "James Draney",
+    "department": "Biology",
+    "profile_url": "https://www.haverford.edu/users/jdraney",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Ruodi Duan",
     "department": "History",
     "profile_url": "https://www.haverford.edu/users/rduan",
@@ -339,6 +504,28 @@
     "openalex_display_name": null,
     "works_count": 0,
     "cited_by_count": 0
+  },
+  {
+    "name": "Kaye Edwards",
+    "department": "Music",
+    "profile_url": "https://www.haverford.edu/users/kedwards",
+    "orcid": null,
+    "openalex_id": "A5103396077",
+    "openalex_url": "https://openalex.org/A5103396077",
+    "openalex_display_name": "Mina Edwards",
+    "works_count": 27,
+    "cited_by_count": 1507
+  },
+  {
+    "name": "Noah Elkins",
+    "department": "History of Art",
+    "profile_url": "https://www.haverford.edu/users/nelkins",
+    "orcid": null,
+    "openalex_id": "A5077716504",
+    "openalex_url": "https://openalex.org/A5077716504",
+    "openalex_display_name": "Noah Elkins",
+    "works_count": 6,
+    "cited_by_count": 2
   },
   {
     "name": "Valerie Erwin",
@@ -517,6 +704,28 @@
     "cited_by_count": 0
   },
   {
+    "name": "Hank Glassman",
+    "department": "Religion",
+    "profile_url": "https://www.haverford.edu/users/hglassma",
+    "orcid": null,
+    "openalex_id": "A5000436782",
+    "openalex_url": "https://openalex.org/A5000436782",
+    "openalex_display_name": "Hank Glassman",
+    "works_count": 30,
+    "cited_by_count": 23
+  },
+  {
+    "name": "Aurelia Gómez De Unamuno",
+    "department": "Spanish",
+    "profile_url": "https://www.haverford.edu/users/agomez",
+    "orcid": null,
+    "openalex_id": "A5016699046",
+    "openalex_url": "https://openalex.org/A5016699046",
+    "openalex_display_name": "Aurelia Gómez Unamuno",
+    "works_count": 7,
+    "cited_by_count": 8
+  },
+  {
     "name": "Jonathan Goodrich",
     "department": "Fine Arts",
     "profile_url": "https://www.haverford.edu/users/jgoodric",
@@ -605,6 +814,28 @@
     "cited_by_count": 450
   },
   {
+    "name": "Ezgi Guner",
+    "department": "French",
+    "profile_url": "https://www.haverford.edu/users/eguner",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Marcel Gutwirth",
+    "department": "French",
+    "profile_url": "https://www.haverford.edu/users/mgutwirth",
+    "orcid": null,
+    "openalex_id": "A5039734866",
+    "openalex_url": "https://openalex.org/A5039734866",
+    "openalex_display_name": "Marcel Gutwirth",
+    "works_count": 55,
+    "cited_by_count": 137
+  },
+  {
     "name": "GT H",
     "department": "Religion",
     "profile_url": "https://www.haverford.edu/users/gha",
@@ -614,6 +845,28 @@
     "openalex_display_name": null,
     "works_count": 0,
     "cited_by_count": 0
+  },
+  {
+    "name": "Indie Halstead",
+    "department": "Fine Arts",
+    "profile_url": "https://www.haverford.edu/users/ihalstead",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "David Harrington Watt",
+    "department": "Religion",
+    "profile_url": "https://www.haverford.edu/users/dhwatt",
+    "orcid": null,
+    "openalex_id": "A5076016596",
+    "openalex_url": "https://openalex.org/A5076016596",
+    "openalex_display_name": "David Harrington Watt",
+    "works_count": 104,
+    "cited_by_count": 1761
   },
   {
     "name": "Laurie Hart",
@@ -702,6 +955,39 @@
     "openalex_display_name": "Emily Hong",
     "works_count": 5,
     "cited_by_count": 72
+  },
+  {
+    "name": "Shizhe Huang",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/shuang",
+    "orcid": null,
+    "openalex_id": "A5088804129",
+    "openalex_url": "https://openalex.org/A5088804129",
+    "openalex_display_name": "Shi-Zhe Huang",
+    "works_count": 24,
+    "cited_by_count": 400
+  },
+  {
+    "name": "Honglan Huang",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/hhuang",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Ariana Huberman",
+    "department": "Spanish",
+    "profile_url": "https://www.haverford.edu/users/ahuberma",
+    "orcid": null,
+    "openalex_id": "A5018229554",
+    "openalex_url": "https://openalex.org/A5018229554",
+    "openalex_display_name": "Ariana Huberman",
+    "works_count": 43,
+    "cited_by_count": 12
   },
   {
     "name": "Dale Husemoller",
@@ -812,6 +1098,17 @@
     "openalex_display_name": "Alexander Kitroeff",
     "works_count": 138,
     "cited_by_count": 85
+  },
+  {
+    "name": "Yoko Koike",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/ykoike",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
   },
   {
     "name": "Ken Koltun-Fromm",
@@ -968,6 +1265,17 @@
     "cited_by_count": 0
   },
   {
+    "name": "Jess Libow",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/jlibow",
+    "orcid": null,
+    "openalex_id": "A5092852047",
+    "openalex_url": "https://openalex.org/A5092852047",
+    "openalex_display_name": "Jess Libow",
+    "works_count": 2,
+    "cited_by_count": 0
+  },
+  {
     "name": "Jennifer Lilgendahl",
     "department": "Psychology",
     "profile_url": "https://www.haverford.edu/users/jlilgend",
@@ -977,6 +1285,17 @@
     "openalex_display_name": "Jennifer Lilgendahl",
     "works_count": 41,
     "cited_by_count": 2041
+  },
+  {
+    "name": "Brook Lillehaugen",
+    "department": "Linguistics",
+    "profile_url": "https://www.haverford.edu/users/blilleha",
+    "orcid": null,
+    "openalex_id": "A5085473203",
+    "openalex_url": "https://openalex.org/A5085473203",
+    "openalex_display_name": "Brook Danielle Lillehaugen",
+    "works_count": 26,
+    "cited_by_count": 177
   },
   {
     "name": "Steven Lindell",
@@ -1021,6 +1340,17 @@
     "openalex_display_name": "Casey H. Londergan",
     "works_count": 93,
     "cited_by_count": 1952
+  },
+  {
+    "name": "Ana López-Sánchez",
+    "department": "Spanish",
+    "profile_url": "https://www.haverford.edu/users/alopez",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
   },
   {
     "name": "Danielle Macbeth",
@@ -1078,6 +1408,17 @@
     "cited_by_count": 747
   },
   {
+    "name": "Lina Martinez Hernandez",
+    "department": "Sociology",
+    "profile_url": "https://www.haverford.edu/users/lmartinezh",
+    "orcid": null,
+    "openalex_id": "A5082386348",
+    "openalex_url": "https://openalex.org/A5082386348",
+    "openalex_display_name": "Lina Martínez Hernández",
+    "works_count": 4,
+    "cited_by_count": 1
+  },
+  {
     "name": "Karen Masters",
     "department": "Physics",
     "profile_url": "https://www.haverford.edu/users/klmasters",
@@ -1087,6 +1428,17 @@
     "openalex_display_name": "Karen L. Masters",
     "works_count": 404,
     "cited_by_count": 30935
+  },
+  {
+    "name": "Sara Mathieson",
+    "department": "Computer Science",
+    "profile_url": "https://www.haverford.edu/users/smathieson",
+    "orcid": null,
+    "openalex_id": "A5002178567",
+    "openalex_url": "https://openalex.org/A5002178567",
+    "openalex_display_name": "Sara Mathieson",
+    "works_count": 20,
+    "cited_by_count": 554
   },
   {
     "name": "Reginald McGee",
@@ -1103,6 +1455,17 @@
     "name": "Steve McGovern",
     "department": "Political Science",
     "profile_url": "https://www.haverford.edu/users/smcgover",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Michelle McGowan",
+    "department": "Italian",
+    "profile_url": "https://www.haverford.edu/users/mmcgowan",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -1199,6 +1562,17 @@
     "cited_by_count": 958
   },
   {
+    "name": "Graciela Michelotti",
+    "department": "Fine Arts",
+    "profile_url": "https://www.haverford.edu/users/gmichelo",
+    "orcid": null,
+    "openalex_id": "A5081810797",
+    "openalex_url": "https://openalex.org/A5081810797",
+    "openalex_display_name": "Graciela Michelotti",
+    "works_count": 7,
+    "cited_by_count": 1
+  },
+  {
     "name": "Elizabeth Milićević",
     "department": "Mathematics",
     "profile_url": "https://www.haverford.edu/users/emilicevic",
@@ -1235,6 +1609,17 @@
     "name": "Joseph Miller",
     "department": "Philosophy",
     "profile_url": "https://www.haverford.edu/users/jmiller4",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Lauren Minsky",
+    "department": "Fine Arts",
+    "profile_url": "https://www.haverford.edu/users/lminsky",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -1296,6 +1681,17 @@
     "openalex_display_name": "Bret Mulligan",
     "works_count": 57,
     "cited_by_count": 40
+  },
+  {
+    "name": "John Muse",
+    "department": "English",
+    "profile_url": "https://www.haverford.edu/users/jmuse",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
   },
   {
     "name": "Jiwon Nam",
@@ -1375,6 +1771,28 @@
     "cited_by_count": 5488
   },
   {
+    "name": "Bryan Norton",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/bnorton",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Matthew O'Hare",
+    "department": "Computer Science",
+    "profile_url": "https://www.haverford.edu/users/mohare1",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Zachary Oberfield",
     "department": "Political Science",
     "profile_url": "https://www.haverford.edu/users/zoberfie",
@@ -1419,6 +1837,17 @@
     "cited_by_count": 84
   },
   {
+    "name": "Kaitlyn Parenti",
+    "department": "Biology",
+    "profile_url": "https://www.haverford.edu/users/kparenti",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Bruce Partridge",
     "department": "Physics",
     "profile_url": "https://www.haverford.edu/users/bpartrid",
@@ -1444,6 +1873,17 @@
     "name": "Samuel Pérez-Ayala",
     "department": "Mathematics",
     "profile_url": "https://www.haverford.edu/users/sperezayal",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Prea Persaud Khanna",
+    "department": "Economics",
+    "profile_url": "https://www.haverford.edu/users/ppersaudkh",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -1507,6 +1947,17 @@
     "cited_by_count": 0
   },
   {
+    "name": "Kevin Quin",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/kquin",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "James Ransom",
     "department": "English",
     "profile_url": "https://www.haverford.edu/users/jransom",
@@ -1540,6 +1991,17 @@
     "cited_by_count": 0
   },
   {
+    "name": "Swetha Regunathan",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/sregunatha",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Keishla Rivera-López",
     "department": "English",
     "profile_url": "https://www.haverford.edu/users/kriveralop",
@@ -1560,6 +2022,39 @@
     "openalex_display_name": "Deborah H. Roberts",
     "works_count": 72,
     "cited_by_count": 321
+  },
+  {
+    "name": "Patrese Robinson-Drummer",
+    "department": "Psychology",
+    "profile_url": "https://www.haverford.edu/users/probinsond",
+    "orcid": null,
+    "openalex_id": "A5038797170",
+    "openalex_url": "https://openalex.org/A5038797170",
+    "openalex_display_name": "Patrese A. Robinson-Drummer",
+    "works_count": 18,
+    "cited_by_count": 261
+  },
+  {
+    "name": "Luis Rodriguez-Rincon",
+    "department": "Growth & Structure of Cities",
+    "profile_url": "https://www.haverford.edu/users/lrodrigue1",
+    "orcid": null,
+    "openalex_id": "A5036525761",
+    "openalex_url": "https://openalex.org/A5036525761",
+    "openalex_display_name": "Luis Rodríguez-Rincón",
+    "works_count": 6,
+    "cited_by_count": 1
+  },
+  {
+    "name": "Christopher R. Rogers",
+    "department": "Computer Science",
+    "profile_url": "https://www.haverford.edu/users/crrogers",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
   },
   {
     "name": "Marlen Rosas",
@@ -1606,6 +2101,17 @@
     "cited_by_count": 0
   },
   {
+    "name": "Tetsuya Sato",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/tsato",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Robert Scarrow",
     "department": "Chemistry",
     "profile_url": "https://www.haverford.edu/users/rscarrow",
@@ -1628,6 +2134,39 @@
     "cited_by_count": 84
   },
   {
+    "name": "Carol Schilling",
+    "department": "Music",
+    "profile_url": "https://www.haverford.edu/users/cschilli",
+    "orcid": null,
+    "openalex_id": "A5072266800",
+    "openalex_url": "https://openalex.org/A5072266800",
+    "openalex_display_name": "Carol Schilling",
+    "works_count": 8,
+    "cited_by_count": 32
+  },
+  {
+    "name": "Erin Schoneveld",
+    "department": "History of Art",
+    "profile_url": "https://www.haverford.edu/users/eschonevel",
+    "orcid": null,
+    "openalex_id": "A5010773473",
+    "openalex_url": "https://openalex.org/A5010773473",
+    "openalex_display_name": "Erin Schoneveld",
+    "works_count": 27,
+    "cited_by_count": 11
+  },
+  {
+    "name": "Ulrich Schönherr",
+    "department": "German",
+    "profile_url": "https://www.haverford.edu/users/uschoenh",
+    "orcid": null,
+    "openalex_id": "A5075775749",
+    "openalex_url": "https://openalex.org/A5075775749",
+    "openalex_display_name": "Ulrich Schönherr",
+    "works_count": 100,
+    "cited_by_count": 1074
+  },
+  {
     "name": "Hannah Schultz",
     "department": "English",
     "profile_url": "https://www.haverford.edu/users/hschultz",
@@ -1637,6 +2176,17 @@
     "openalex_display_name": null,
     "works_count": 0,
     "cited_by_count": 0
+  },
+  {
+    "name": "David Sedley",
+    "department": "History",
+    "profile_url": "https://www.haverford.edu/users/dsedley",
+    "orcid": null,
+    "openalex_id": "A5007289035",
+    "openalex_url": "https://openalex.org/A5007289035",
+    "openalex_display_name": "David Sedley",
+    "works_count": 40,
+    "cited_by_count": 825
   },
   {
     "name": "Leah Seebald",
@@ -1782,6 +2332,17 @@
     "cited_by_count": 301
   },
   {
+    "name": "Jill Stauffer",
+    "department": "Philosophy",
+    "profile_url": "https://www.haverford.edu/users/jstauffe",
+    "orcid": null,
+    "openalex_id": "A5025158195",
+    "openalex_url": "https://openalex.org/A5025158195",
+    "openalex_display_name": "Jill Stauffer",
+    "works_count": 51,
+    "cited_by_count": 325
+  },
+  {
     "name": "Susan Stuard",
     "department": "History",
     "profile_url": "https://www.haverford.edu/users/sstuard",
@@ -1796,6 +2357,28 @@
     "name": "Olivia Sultanescu",
     "department": "Philosophy",
     "profile_url": "https://www.haverford.edu/users/asultanesc",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Kimiko Suzuki",
+    "department": "East Asian Languages & Cultures",
+    "profile_url": "https://www.haverford.edu/users/ksuzuki",
+    "orcid": null,
+    "openalex_id": "A5103452762",
+    "openalex_url": "https://openalex.org/A5103452762",
+    "openalex_display_name": "Kimiko Suzuki",
+    "works_count": 8,
+    "cited_by_count": 68
+  },
+  {
+    "name": "Bethany Swann",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/bswann",
     "orcid": null,
     "openalex_id": null,
     "openalex_url": null,
@@ -1837,6 +2420,28 @@
     "cited_by_count": 0
   },
   {
+    "name": "Gina Velasco",
+    "department": "Sociology",
+    "profile_url": "https://www.haverford.edu/users/gvelasco",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Raquel Vieira Parrine Sant'Ana",
+    "department": "Spanish",
+    "profile_url": "https://www.haverford.edu/users/rvieirapar",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
+    "cited_by_count": 0
+  },
+  {
     "name": "Shu-wen Wang",
     "department": "Psychology",
     "profile_url": "https://www.haverford.edu/users/swang1",
@@ -1867,6 +2472,17 @@
     "openalex_url": "https://openalex.org/A5108891407",
     "openalex_display_name": "Ryan Warwick",
     "works_count": 2,
+    "cited_by_count": 0
+  },
+  {
+    "name": "Anna West",
+    "department": "Unknown",
+    "profile_url": "https://www.haverford.edu/users/amwest",
+    "orcid": null,
+    "openalex_id": null,
+    "openalex_url": null,
+    "openalex_display_name": null,
+    "works_count": 0,
     "cited_by_count": 0
   },
   {

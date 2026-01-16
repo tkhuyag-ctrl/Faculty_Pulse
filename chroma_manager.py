@@ -2,7 +2,7 @@ import chromadb
 import json
 import uuid
 import logging
-from typing import List, Dict, Optional, Literal
+from typing import List, Dict, Optional, Literal, Union
 from chromadb.config import Settings
 from enum import Enum
 from datetime import datetime
@@ -181,37 +181,175 @@ class ChromaDBManager:
 
     def query_submissions(self, query_text: str, n_results: int = 5,
                          content_type: Optional[str] = None,
-                         department: Optional[str] = None):
+                         department: Optional[str] = None,
+                         year_filter: Optional[Union[str, List[str]]] = None,
+                         date_range: Optional[Dict[str, str]] = None):
         """
-        Query submissions from the collection
+        Query submissions from the collection with semantic and metadata filtering
 
         Args:
-            query_text: Query text
+            query_text: Query text for semantic search
             n_results: Number of results to return
             content_type: Optional filter by content type (Award, Publication, Talk)
             department: Optional filter by department
+            year_filter: Optional filter by year - single year string or list of years (e.g., "2024", ["2024", "2025"])
+            date_range: Optional date range filter with 'start' and/or 'end' keys
+                       Format: {"start": "2023-01-01", "end": "2024-12-31"}
 
         Returns:
             Query results
         """
-        where_filter = {}
+        where_filter = None
+        where_document_filter = None
 
+        # Build metadata filters - ChromaDB requires $and for multiple conditions
+        filters = []
+
+        # Add content type filter
         if content_type:
-            where_filter["content_type"] = content_type
+            filters.append({"content_type": {"$eq": content_type}})
 
+        # Add department filter
         if department:
-            where_filter["department"] = department
+            filters.append({"department": {"$eq": department}})
+
+        # Combine filters using $and if multiple
+        if len(filters) > 1:
+            where_filter = {"$and": filters}
+        elif len(filters) == 1:
+            where_filter = filters[0]
+
+        # Year filter will be applied post-query as ChromaDB filtering is complex
+        # We'll fetch more results and filter them in Python
+
+        # Add date range filter using $gte and $lte operators
+        if date_range:
+            if "start" in date_range or "end" in date_range:
+                date_filter = {}
+                if "start" in date_range:
+                    date_filter["$gte"] = date_range["start"]
+                if "end" in date_range:
+                    date_filter["$lte"] = date_range["end"]
+                date_range_filter = {"date_published": date_filter}
+
+                # Combine with existing filters
+                if where_filter:
+                    where_filter = {"$and": [where_filter, date_range_filter]}
+                else:
+                    where_filter = date_range_filter
+
+        # If we have a year filter, fetch many more results so we can filter them post-query
+        # Fetch up to 10x the requested amount to ensure we get enough after filtering
+        fetch_count = n_results * 10 if year_filter else n_results
 
         query_kwargs = {
             "query_texts": [query_text],
-            "n_results": n_results
+            "n_results": fetch_count
         }
 
+        # Add metadata filters if any
         if where_filter:
             query_kwargs["where"] = where_filter
 
-        results = self.collection.query(**query_kwargs)
-        return results
+        try:
+            results = self.collection.query(**query_kwargs)
+
+            # Apply year filtering post-query if needed
+            if year_filter and results and 'metadatas' in results:
+                filtered_results = {
+                    'ids': [[]],
+                    'distances': [[]],
+                    'metadatas': [[]],
+                    'documents': [[]]
+                }
+
+                skipped_count = 0
+                examined_count = 0
+
+                for i, metadata in enumerate(results['metadatas'][0]):
+                    date_pub = metadata.get('date_published', '')
+                    examined_count += 1
+
+                    # Check if date matches year filter
+                    should_include = False
+                    if isinstance(year_filter, list):
+                        # Check if date starts with any of the years in the list
+                        # Date format is YYYY-MM-DD, so we check first 4 characters
+                        if date_pub and len(date_pub) >= 4:
+                            year_from_date = date_pub[:4]
+                            should_include = year_from_date in year_filter
+                    elif isinstance(year_filter, str):
+                        # Single year filter
+                        if date_pub and len(date_pub) >= 4:
+                            year_from_date = date_pub[:4]
+                            should_include = year_from_date == year_filter
+
+                    if should_include:
+                        filtered_results['ids'][0].append(results['ids'][0][i])
+                        filtered_results['distances'][0].append(results['distances'][0][i])
+                        filtered_results['metadatas'][0].append(results['metadatas'][0][i])
+                        filtered_results['documents'][0].append(results['documents'][0][i])
+
+                        # Stop once we have enough results
+                        if len(filtered_results['ids'][0]) >= n_results:
+                            break
+                    else:
+                        skipped_count += 1
+
+                logger.info(f"Year filter applied: examined {examined_count} results, kept {len(filtered_results['ids'][0])}, skipped {skipped_count}")
+
+                # If we didn't get enough results, warn about it
+                if len(filtered_results['ids'][0]) < n_results:
+                    logger.warning(f"Only found {len(filtered_results['ids'][0])} results matching year filter {year_filter} (requested {n_results})")
+
+                # Sort filtered results by date (most recent first) while maintaining semantic relevance
+                # We'll sort by date within the filtered results to prioritize newer content
+                if len(filtered_results['ids'][0]) > 0:
+                    # Create tuples of (date, distance, index) for sorting
+                    results_with_dates = []
+                    for idx in range(len(filtered_results['ids'][0])):
+                        date_str = filtered_results['metadatas'][0][idx].get('date_published', '')
+                        distance = filtered_results['distances'][0][idx]
+                        results_with_dates.append((date_str, distance, idx))
+
+                    # Sort by date (descending, most recent first), then by distance (ascending, most similar first)
+                    results_with_dates.sort(key=lambda x: (x[0], -x[1]), reverse=True)
+
+                    # Reorder filtered results based on sorted indices
+                    sorted_filtered = {
+                        'ids': [[]],
+                        'distances': [[]],
+                        'metadatas': [[]],
+                        'documents': [[]]
+                    }
+
+                    for _, _, idx in results_with_dates:
+                        sorted_filtered['ids'][0].append(filtered_results['ids'][0][idx])
+                        sorted_filtered['distances'][0].append(filtered_results['distances'][0][idx])
+                        sorted_filtered['metadatas'][0].append(filtered_results['metadatas'][0][idx])
+                        sorted_filtered['documents'][0].append(filtered_results['documents'][0][idx])
+
+                    return sorted_filtered
+
+                return filtered_results
+
+            return results
+        except Exception as e:
+            logger.error(f"Query failed: {str(e)}")
+            # Fall back to simpler query without date filters
+            query_kwargs = {
+                "query_texts": [query_text],
+                "n_results": n_results
+            }
+            if content_type or department:
+                simple_filter = {}
+                if content_type:
+                    simple_filter["content_type"] = content_type
+                if department:
+                    simple_filter["department"] = department
+                query_kwargs["where"] = simple_filter
+            results = self.collection.query(**query_kwargs)
+            return results
 
     def get_collection_count(self):
         """Get the number of documents in the collection"""

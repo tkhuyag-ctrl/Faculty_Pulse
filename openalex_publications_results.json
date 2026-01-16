@@ -1,5 +1,141 @@
 [
   {
+    "name": "Karin \u00c5kerfeldt",
+    "openalex_id": "A5022394055",
+    "department": "Chemistry",
+    "publications_fetched": 7,
+    "publications_stored": 5,
+    "error": null
+  },
+  {
+    "name": "Suzanne Amador Kane",
+    "openalex_id": "A5051964527",
+    "department": "Physics",
+    "publications_fetched": 29,
+    "publications_stored": 13,
+    "error": null
+  },
+  {
+    "name": "Tarik Aougab",
+    "openalex_id": "A5065687388",
+    "department": "Mathematics",
+    "publications_fetched": 20,
+    "publications_stored": 19,
+    "error": null
+  },
+  {
+    "name": "Ingrid Arauco",
+    "openalex_id": "A5081033948",
+    "department": "Music",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Laura Been",
+    "openalex_id": "A5049145887",
+    "department": "Psychology",
+    "publications_fetched": 12,
+    "publications_stored": 12,
+    "error": null
+  },
+  {
+    "name": "Kimberly Benston",
+    "openalex_id": "A5047323537",
+    "department": "English",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Frances Rose Blase",
+    "openalex_id": "A5026544565",
+    "department": "Chemistry",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Marilyn Boltz",
+    "openalex_id": "A5029269670",
+    "department": "Psychology",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Craig Borowiak",
+    "openalex_id": "A5062560745",
+    "department": "Political Science",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Ted Brzinski",
+    "openalex_id": "A5086500659",
+    "department": "Physics",
+    "publications_fetched": 7,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Lynne Butler",
+    "openalex_id": "A5011484550",
+    "department": "Mathematics",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Amy Campbell",
+    "openalex_id": "A5083547752",
+    "department": "Biology",
+    "publications_fetched": 83,
+    "publications_stored": 27,
+    "error": null
+  },
+  {
+    "name": "Rebecca Compton",
+    "openalex_id": "A5088290295",
+    "department": "Psychology",
+    "publications_fetched": 32,
+    "publications_stored": 31,
+    "error": null
+  },
+  {
+    "name": "Amy Cooke",
+    "openalex_id": "A5067831080",
+    "department": "Biology",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Clyde Daly",
+    "openalex_id": "A5035726301",
+    "department": "Chemistry",
+    "publications_fetched": 16,
+    "publications_stored": 11,
+    "error": null
+  },
+  {
+    "name": "Douglas Davis",
+    "openalex_id": "A5109575546",
+    "department": "Psychology",
+    "publications_fetched": 1,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Lee Dietterich",
+    "openalex_id": "A5077904179",
+    "department": "Biology",
+    "publications_fetched": 45,
+    "publications_stored": 40,
+    "error": null
+  },
+  {
     "name": "John Dougherty",
     "openalex_id": "A5015357170",
     "department": "Computer Science",
@@ -8,18 +144,290 @@
     "error": null
   },
   {
+    "name": "Rebecca Everett",
+    "openalex_id": "A5068138479",
+    "department": "Mathematics",
+    "publications_fetched": 24,
+    "publications_stored": 14,
+    "error": null
+  },
+  {
+    "name": "Robert Fairman",
+    "openalex_id": "A5051561650",
+    "department": "Biology",
+    "publications_fetched": 11,
+    "publications_stored": 11,
+    "error": null
+  },
+  {
+    "name": "Matthew Farmer",
+    "openalex_id": "A5018334860",
+    "department": "Classics",
+    "publications_fetched": 10,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Molly Farneth",
+    "openalex_id": "A5047236540",
+    "department": "Religion",
+    "publications_fetched": 11,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Stephen Finley",
+    "openalex_id": "A5056763209",
+    "department": "English",
+    "publications_fetched": 9,
+    "publications_stored": 8,
+    "error": null
+  },
+  {
+    "name": "Richard Freedman",
+    "openalex_id": "A5008813157",
+    "department": "Music",
+    "publications_fetched": 86,
+    "publications_stored": 85,
+    "error": null
+  },
+  {
     "name": "Sorelle Friedler",
     "openalex_id": "A5086384189",
     "department": "Computer Science",
-    "publications_fetched": 29,
-    "publications_stored": 18,
+    "publications_fetched": 31,
+    "publications_stored": 20,
+    "error": null
+  },
+  {
+    "name": "Andrew Friedman",
+    "openalex_id": "A5034550792",
+    "department": "History",
+    "publications_fetched": 8,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Theresa Gaines",
+    "openalex_id": "A5098662033",
+    "department": "Chemistry",
+    "publications_fetched": 1,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Ashok Gangadean",
+    "openalex_id": "A5057240886",
+    "department": "Philosophy",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Linda Gerstein",
+    "openalex_id": "A5033248647",
+    "department": "Fine Arts",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Mark Gould",
+    "openalex_id": "A5038776103",
+    "department": "Sociology",
+    "publications_fetched": 4,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Lisa Jane Graham",
+    "openalex_id": "A5113679092",
+    "department": "History",
+    "publications_fetched": 1,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Curtis Greene",
+    "openalex_id": "A5103679717",
+    "department": "Mathematics",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Daniel Grin",
+    "openalex_id": "A5051593966",
+    "department": "Physics",
+    "publications_fetched": 39,
+    "publications_stored": 37,
     "error": null
   },
   {
     "name": "Alvin Grissom",
     "openalex_id": "A5088386242",
     "department": "Computer Science",
-    "publications_fetched": 8,
+    "publications_fetched": 9,
+    "publications_stored": 5,
+    "error": null
+  },
+  {
+    "name": "Laurie Hart",
+    "openalex_id": "A5104076758",
+    "department": "Anthropology",
+    "publications_fetched": 9,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Darin Hayton",
+    "openalex_id": "A5044059136",
+    "department": "History",
+    "publications_fetched": 16,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Rachel Hoang",
+    "openalex_id": "A5077759324",
+    "department": "Biology",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Emily Hong",
+    "openalex_id": "A5069181022",
+    "department": "Anthropology",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Dale Husemoller",
+    "openalex_id": "A5001163189",
+    "department": "Mathematics",
+    "publications_fetched": 1,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Geoffrey Hutinet",
+    "openalex_id": "A5022323067",
+    "department": "Biology",
+    "publications_fetched": 13,
+    "publications_stored": 13,
+    "error": null
+  },
+  {
+    "name": "Anita Isaacs",
+    "openalex_id": "A5015704540",
+    "department": "Political Science",
+    "publications_fetched": 4,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Roshan Jain",
+    "openalex_id": "A5072227056",
+    "department": "Biology",
+    "publications_fetched": 7,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Karl Johnson",
+    "openalex_id": "A5101745003",
+    "department": "Biology",
+    "publications_fetched": 2,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Alexander Kitroeff",
+    "openalex_id": "A5087616676",
+    "department": "History",
+    "publications_fetched": 33,
+    "publications_stored": 32,
+    "error": null
+  },
+  {
+    "name": "Ken Koltun-Fromm",
+    "openalex_id": "A5031870406",
+    "department": "Religion",
+    "publications_fetched": 7,
+    "publications_stored": 5,
+    "error": null
+  },
+  {
+    "name": "Naomi Koltun-Fromm",
+    "openalex_id": "A5049796171",
+    "department": "Religion",
+    "publications_fetched": 11,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Vladimir Kontorovich",
+    "openalex_id": "A5016967159",
+    "department": "Economics",
+    "publications_fetched": 36,
+    "publications_stored": 30,
+    "error": null
+  },
+  {
+    "name": "James Krippner",
+    "openalex_id": "A5040600332",
+    "department": "History",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Timothy Lambie-Hanson",
+    "openalex_id": "A5111536576",
+    "department": "Economics",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Roger Lane",
+    "openalex_id": "A5043404022",
+    "department": "History",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Emma Lapsansky-Werner",
+    "openalex_id": "A5014667932",
+    "department": "History",
+    "publications_fetched": 4,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Benjamin Le",
+    "openalex_id": "A5060224422",
+    "department": "Psychology",
+    "publications_fetched": 13,
+    "publications_stored": 12,
+    "error": null
+  },
+  {
+    "name": "Ryan Lei",
+    "openalex_id": "A5038350852",
+    "department": "Psychology",
+    "publications_fetched": 56,
+    "publications_stored": 30,
+    "error": null
+  },
+  {
+    "name": "Jennifer Lilgendahl",
+    "openalex_id": "A5079206446",
+    "department": "Psychology",
+    "publications_fetched": 9,
     "publications_stored": 5,
     "error": null
   },
@@ -32,10 +440,450 @@
     "error": null
   },
   {
+    "name": "Andrea Lommen",
+    "openalex_id": "A5024054187",
+    "department": "Physics",
+    "publications_fetched": 15,
+    "publications_stored": 14,
+    "error": null
+  },
+  {
+    "name": "Casey Londergan",
+    "openalex_id": "A5075832940",
+    "department": "Chemistry",
+    "publications_fetched": 13,
+    "publications_stored": 13,
+    "error": null
+  },
+  {
+    "name": "Danielle Macbeth",
+    "openalex_id": "A5052399986",
+    "department": "Philosophy",
+    "publications_fetched": 6,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Wyatt MacGaffey",
+    "openalex_id": "A5025623911",
+    "department": "Anthropology",
+    "publications_fetched": 16,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Qrescent Mali Mason",
+    "openalex_id": "A5060399400",
+    "department": "Philosophy",
+    "publications_fetched": 6,
+    "publications_stored": 5,
+    "error": null
+  },
+  {
+    "name": "Robert Manning",
+    "openalex_id": "A5019167160",
+    "department": "Mathematics",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Karen Masters",
+    "openalex_id": "A5075874259",
+    "department": "Physics",
+    "publications_fetched": 140,
+    "publications_stored": 138,
+    "error": null
+  },
+  {
+    "name": "Reginald McGee",
+    "openalex_id": "A5044441752",
+    "department": "Mathematics",
+    "publications_fetched": 8,
+    "publications_stored": 8,
+    "error": null
+  },
+  {
+    "name": "Anne McGuire",
+    "openalex_id": "A5110679260",
+    "department": "Religion",
+    "publications_fetched": 3,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Maud McInerney",
+    "openalex_id": "A5057672513",
+    "department": "English",
+    "publications_fetched": 16,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Matthew McKeever",
+    "openalex_id": "A5102908609",
+    "department": "Sociology",
+    "publications_fetched": 19,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Barak Mendelsohn",
+    "openalex_id": "A5006470111",
+    "department": "Political Science",
+    "publications_fetched": 10,
+    "publications_stored": 10,
+    "error": null
+  },
+  {
+    "name": "Philip Meneely",
+    "openalex_id": "A5017350430",
+    "department": "Biology",
+    "publications_fetched": 14,
+    "publications_stored": 13,
+    "error": null
+  },
+  {
+    "name": "Weiwen Miao",
+    "openalex_id": "A5103498210",
+    "department": "Mathematics",
+    "publications_fetched": 5,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Elizabeth Mili\u0107evi\u0107",
+    "openalex_id": "A5058325973",
+    "department": "Mathematics",
+    "publications_fetched": 23,
+    "publications_stored": 23,
+    "error": null
+  },
+  {
+    "name": "J. Reid Miller",
+    "openalex_id": "A5063791204",
+    "department": "Philosophy",
+    "publications_fetched": 4,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Rajeswari Mohan",
+    "openalex_id": "A5063008315",
+    "department": "English",
+    "publications_fetched": 1,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Robert Mortimer",
+    "openalex_id": "A5108091167",
+    "department": "Political Science",
+    "publications_fetched": 7,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Joshua Moses",
+    "openalex_id": "A5050622705",
+    "department": "Anthropology",
+    "publications_fetched": 4,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Shannon Mudd",
+    "openalex_id": "A5001005912",
+    "department": "Economics",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Bret Mulligan",
+    "openalex_id": "A5069927868",
+    "department": "Classics",
+    "publications_fetched": 5,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Terry Newirth",
+    "openalex_id": "A5053360409",
+    "department": "Chemistry",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Zolani Ngwane",
+    "openalex_id": "A5001056481",
+    "department": "Anthropology",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Alexander Norquist",
+    "openalex_id": "A5027367380",
+    "department": "Chemistry",
+    "publications_fetched": 79,
+    "publications_stored": 62,
+    "error": null
+  },
+  {
+    "name": "Zachary Oberfield",
+    "openalex_id": "A5072831436",
+    "department": "Political Science",
+    "publications_fetched": 2,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Judith Owen",
+    "openalex_id": "A5026387272",
+    "department": "Biology",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "David Owens",
+    "openalex_id": "A5084576572",
+    "department": "Economics",
+    "publications_fetched": 77,
+    "publications_stored": 26,
+    "error": null
+  },
+  {
+    "name": "Giri Parameswaran",
+    "openalex_id": "A5088505717",
+    "department": "Economics",
+    "publications_fetched": 7,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Bruce Partridge",
+    "openalex_id": "A5107932584",
+    "department": "Physics",
+    "publications_fetched": 13,
+    "publications_stored": 13,
+    "error": null
+  },
+  {
+    "name": "Foen Peng",
+    "openalex_id": "A5057503402",
+    "department": "Biology",
+    "publications_fetched": 13,
+    "publications_stored": 11,
+    "error": null
+  },
+  {
+    "name": "Anne Preston",
+    "openalex_id": "A5008252596",
+    "department": "Economics",
+    "publications_fetched": 7,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Lindsay Reckson",
+    "openalex_id": "A5000335484",
+    "department": "English",
+    "publications_fetched": 15,
+    "publications_stored": 12,
+    "error": null
+  },
+  {
+    "name": "Deborah Roberts",
+    "openalex_id": "A5011407315",
+    "department": "Classics",
+    "publications_fetched": 5,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Marlen Rosas",
+    "openalex_id": "A5079320831",
+    "department": "History",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Joshua Sabloff",
+    "openalex_id": "A5012039317",
+    "department": "Mathematics",
+    "publications_fetched": 11,
+    "publications_stored": 11,
+    "error": null
+  },
+  {
+    "name": "Zainab Saleh",
+    "openalex_id": "A5076330363",
+    "department": "Anthropology",
+    "publications_fetched": 18,
+    "publications_stored": 15,
+    "error": null
+  },
+  {
+    "name": "Robert Scarrow",
+    "openalex_id": "A5069797279",
+    "department": "Chemistry",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Jonathan Schacherer",
+    "openalex_id": "A5052396816",
+    "department": "Psychology",
+    "publications_fetched": 8,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Leah Seebald",
+    "openalex_id": "A5051952294",
+    "department": "Chemistry",
+    "publications_fetched": 10,
+    "publications_stored": 6,
+    "error": null
+  },
+  {
+    "name": "Zeynep Sertbulut",
+    "openalex_id": "A5092366705",
+    "department": "Anthropology",
+    "publications_fetched": 5,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Ava Shirazi",
+    "openalex_id": "A5058860711",
+    "department": "Classics",
+    "publications_fetched": 4,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
+    "name": "Sara Shumer",
+    "openalex_id": "A5068673181",
+    "department": "Political Science",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Walter Smith",
+    "openalex_id": "A5112261562",
+    "department": "Physics",
+    "publications_fetched": 11,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Gustavus Stadler",
+    "openalex_id": "A5111822159",
+    "department": "English",
+    "publications_fetched": 2,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Susan Stuard",
+    "openalex_id": "A5057844892",
+    "department": "History",
+    "publications_fetched": 12,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Yung-Sheng Tai",
+    "openalex_id": "A5032342172",
+    "department": "Mathematics",
+    "publications_fetched": 0,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Shu-wen Wang",
+    "openalex_id": "A5100748339",
+    "department": "Psychology",
+    "publications_fetched": 19,
+    "publications_stored": 18,
+    "error": null
+  },
+  {
+    "name": "Ryan Warwick",
+    "openalex_id": "A5108891407",
+    "department": "Classics",
+    "publications_fetched": 2,
+    "publications_stored": 2,
+    "error": null
+  },
+  {
+    "name": "Kristen Whalen",
+    "openalex_id": "A5054194316",
+    "department": "Biology",
+    "publications_fetched": 9,
+    "publications_stored": 9,
+    "error": null
+  },
+  {
+    "name": "Jonathan Wilson",
+    "openalex_id": "A5100781296",
+    "department": "Biology",
+    "publications_fetched": 33,
+    "publications_stored": 15,
+    "error": null
+  },
+  {
+    "name": "Susanna Wing",
+    "openalex_id": "A5037793455",
+    "department": "Political Science",
+    "publications_fetched": 12,
+    "publications_stored": 4,
+    "error": null
+  },
+  {
     "name": "David Wonnacott",
     "openalex_id": "A5048744223",
     "department": "Computer Science",
     "publications_fetched": 1,
+    "publications_stored": 0,
+    "error": null
+  },
+  {
+    "name": "Kathleen Wright",
+    "openalex_id": "A5015471270",
+    "department": "Philosophy",
+    "publications_fetched": 2,
+    "publications_stored": 1,
+    "error": null
+  },
+  {
+    "name": "Talia Young",
+    "openalex_id": "A5057133538",
+    "department": "Environmental Studies",
+    "publications_fetched": 7,
+    "publications_stored": 7,
+    "error": null
+  },
+  {
+    "name": "Miranda Young",
+    "openalex_id": "A5090254852",
+    "department": "Philosophy",
+    "publications_fetched": 3,
+    "publications_stored": 3,
+    "error": null
+  },
+  {
+    "name": "Christina Zwarg",
+    "openalex_id": "A5046881283",
+    "department": "English",
+    "publications_fetched": 12,
     "publications_stored": 0,
     "error": null
   }

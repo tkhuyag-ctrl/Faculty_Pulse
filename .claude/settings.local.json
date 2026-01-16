@@ -28,7 +28,14 @@
       "Bash(\".venv\\\\Scripts\\\\python.exe\" cv_crawler_with_openalex.py)",
       "Bash(tee:*)",
       "Bash(git add:*)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(taskkill /F /FI \"WINDOWTITLE eq streamlit*\")",
+      "Bash(taskkill:*)",
+      "Bash(ping:*)",
+      "Bash(Get-Process)",
+      "Bash(Where-Object {$_ProcessName -like \"*streamlit*\" -or $_ProcessName -like \"*python*\"})",
+      "Bash(Select-Object ProcessName,Id)",
+      "Bash(ConvertTo-Json)"
     ]
   }
 }
